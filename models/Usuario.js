@@ -1,6 +1,8 @@
 import { connection } from "../config/database.js";
 import { DataTypes } from "sequelize";
-import { Evento } from "./Evento.js";
+import { Endereco } from "./Endereco.js";
+import { Pedido } from "./Pedido.js";
+
 
 export const Usuario = connection.define("usuario",{
     nome: {
@@ -25,5 +27,7 @@ export const Usuario = connection.define("usuario",{
         allowNull: false
     }
 });
-Usuario.hasMany(Evento)
-Evento.belongsTo(Usuario)
+Usuario.hasOne(Endereco)
+Endereco.belongsTo(Usuario)
+Usuario.hasMany(Pedido)
+Pedido.belongsTo(Usuario)

@@ -1,11 +1,8 @@
 import { connection } from "../config/database.js";
 import { DataTypes } from "sequelize";
 
-export const Locais = connection.define("locais",{
-    nome: {
-        type: DataTypes.STRING(60),
-        allowNull: false
-    },
+export const Endereco = connection.define("endereco",{
+   
     rua: {
         type: DataTypes.STRING(60),
         allowNull: false
@@ -18,9 +15,13 @@ export const Locais = connection.define("locais",{
         type: DataTypes.STRING(40),
         allowNull: false
     },
-    referencia: {
-        type: DataTypes.STRING(80),
-        defaultValue: "S/N"
+    uf: {
+        type: DataTypes.STRING(2),
+        allowNull: false
+    },
+    cep: {
+        type: DataTypes.STRING(8),
+        allowNull: false
     }
 });
 
